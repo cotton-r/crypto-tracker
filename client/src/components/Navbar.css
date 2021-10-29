@@ -1,0 +1,22 @@
+.nav-container {
+    width: 192px;
+    height: 100vh;
+    background-color: #222B44;
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.logo-container {
+    padding: 10px;
+}
+
+.nav-item {
+    padding: 5px;
+    background-color: #1D2437;
+    margin: 5px 0px;
+}
+
+.nav-item-icon {
+    margin-left: 15px;
+}
+
