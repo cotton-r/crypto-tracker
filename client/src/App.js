@@ -4,7 +4,7 @@ import { Layout, Typography, Space } from 'antd';
 
 import './App.css';
 
-import Navbar from './components/Navbar';
+import { Navbar, Cryptocurrencies, Dashboard, News } from './components/index';
  
 const App = () => {
     return (
@@ -28,9 +28,6 @@ const App = () => {
                         </Switch>
                     </div>
                 </Layout>
-            </div>
-            <div className='footer'>
-
             </div>
         </div>
     )    

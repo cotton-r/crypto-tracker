@@ -8,6 +8,12 @@
 
 .logo-container {
     padding: 10px;
+    margin-bottom: 40px;
+}
+
+.logo-container img {
+    height: 30px !important;
+    width: 30px !important;
 }
 
 .nav-item {
@@ -18,5 +24,13 @@
 
 .nav-item-icon {
     margin-left: 15px;
+}
+
+.ant-menu {
+    background-color: #222B44 !important;
+}
+
+.ant-menu-item:hover {
+    background-color: #1890ff !important;
 }
 

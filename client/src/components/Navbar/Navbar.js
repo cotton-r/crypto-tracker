@@ -5,7 +5,7 @@ import { HomeOutlined, MoneyCollectedOutlined, BulbOutlined, DollarOutlined, Men
 
 import './Navbar.css';
 
-import icon from '../images/crypto-icon.png';
+import icon from '../../images/crypto-icon.png';
 
 const Navbar = () => {
     return (

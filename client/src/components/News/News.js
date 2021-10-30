@@ -2,8 +2,8 @@ import React from 'react';
 
 const News = () => {
     return (
-        <div>
-            
+        <div className='page-container'>
+            News
         </div>
     )
 };
