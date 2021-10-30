@@ -1,0 +1,26 @@
+.global-stats-tile {
+    background-color: #222B44;
+    height: 200px;
+    width: 300px;
+    padding: 10px;
+}
+
+.global-stats-heading {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    margin-bottom: 30px !important;
+}
+
+.ant-statistic-title {
+    font-weight: 200;
+}
+
+.ant-statistic-content {
+    font-weight: 500;
+    font-size: 1.2rem !important;
+    margin-bottom: 10px;
+}
+
+.ant-row {
+    margin-right: -50px;
+}
