@@ -7,6 +7,23 @@ body {
     color: #fff !important;
 }
 
+.app {
+    height: 100vh !important;
+    width: 100vw !important;
+    overflow: hidden;
+    display: flex;
+}
+
 .navbar {
-    width: fit-content;
+    width: 192px;
+}
+
+.main {
+    width: calc(100vw - 192px);
+    min-height: 100vw !important;
+}
+
+.page-container {
+    height: 100vh;
+    background-color: #151A30;
 }
