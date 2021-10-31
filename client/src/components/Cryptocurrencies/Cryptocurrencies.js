@@ -3,26 +3,28 @@ import millify from 'millify';
 import numeral from 'numeral'
 import { Link } from 'react-router-dom';
 import { Card, Row, Col, Input } from 'antd';
+import { currencies } from '../currencyList';
 
 import './Cryptocurrencies.css';
 
 import { useGetCryptosQuery } from '../../services/cryptoApi';
 
-const Cryptocurrencies = () => {
+const Cryptocurrencies = ({userCurrency}) => {
 
-    const { data: cryptosList, isFetching } = useGetCryptosQuery();
+    const { data: cryptosList, isFetching } = useGetCryptosQuery(userCurrency);
     const [cryptos, setCryptos] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    console.log(cryptosList);
 
     useEffect(() => {
         const filteredData = cryptosList?.data?.coins.filter((coin) => coin.name.toLowerCase().includes(searchTerm.toLowerCase()));
         setCryptos(filteredData);
 
-    }, [cryptosList, searchTerm]);
+    }, [cryptosList, searchTerm, userCurrency]);
 
     if (isFetching) return 'Loading...';
 
-    let currencySymbol = '£';
+    const currencySymbol = currencies[userCurrency];
 
     return (
         <div className='page-container crypto-page'>
@@ -43,19 +45,19 @@ const Cryptocurrencies = () => {
                                     let price = Number(currency.price);
 
                                     if (price < 0.000000001) {
-                                        return <p>Price: {currencySymbol}{numeral(currency.price).format('0,0.00000000000')}</p>;
+                                        return <p>Price: {currencySymbol} {numeral(currency.price).format('0,0.00000000000')}</p>;
                                     } else if (price < 0.0000001) {
-                                        return <p>Price: {currencySymbol}{numeral(currency.price).format('0,0.000000000')}</p>;
+                                        return <p>Price: {currencySymbol} {numeral(currency.price).format('0,0.000000000')}</p>;
                                     } else if (price < 0.00001) {
-                                        return <p>Price: {currencySymbol}{numeral(currency.price).format('0,0.0000000')}</p>;
+                                        return <p>Price: {currencySymbol} {numeral(currency.price).format('0,0.0000000')}</p>;
                                     } else if (price < 0.001) {
-                                        return <p>Price: {currencySymbol}{numeral(currency.price).format('0,0.000000')}</p>;
+                                        return <p>Price: {currencySymbol} {numeral(currency.price).format('0,0.000000')}</p>;
                                     } else if (price < 1) {
-                                        return <p>Price: {currencySymbol}{numeral(currency.price).format('0,0.0000')}</p>;
+                                        return <p>Price: {currencySymbol} {numeral(currency.price).format('0,0.0000')}</p>;
                                     } else if (price < 10) {
-                                        return <p>Price: {currencySymbol}{numeral(currency.price).format('0,0.0000')}</p>;
+                                        return <p>Price: {currencySymbol} {numeral(currency.price).format('0,0.0000')}</p>;
                                     } else if (price > 10) {
-                                        return <p>Price: {currencySymbol}{numeral(currency.price).format('0,0.00')}</p>;
+                                        return <p>Price: {currencySymbol} {numeral(currency.price).format('0,0.00')}</p>;
                                     } else {
                                         return <p>Price: {currencySymbol}{currency.price}</p>;
                                     }

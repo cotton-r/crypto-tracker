@@ -37,6 +37,14 @@ const Navbar = ({userCurrency, setUserCurrency}) => {
                     <option value='GBP'>GBP</option>
                     <option value='USD'>USD</option>
                     <option value='EUR'>EUR</option>
+                    <option value='INR'>INR</option>
+                    <option value='AUD'>AUD</option>
+                    <option value='CAD'>CAD</option>
+                    <option value='SGD'>SGD</option>
+                    <option value='CHF'>CHF</option>
+                    <option value='MYR'>MYR</option>
+                    <option value='JPY'>JPY</option>
+                    <option value='CNY'>CNY</option>
                 </select>
             </div>
         </div>
