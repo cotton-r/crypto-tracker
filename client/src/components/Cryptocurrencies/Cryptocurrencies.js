@@ -36,8 +36,28 @@ const Cryptocurrencies = () => {
                                 extra={<img className='crypto-image' src={currency.iconUrl} />}
                                 hoverable
                             >
-                                <p>Price: {currency.price > 10 ? numeral(currency.price).format('$0,0.00') : currency.price}</p>
                                 <p>Market Cap: {millify(currency.marketCap)}</p>
+                                {(() => {
+                                    let price = Number(currency.price);
+
+                                    if (price < 0.000000001) {
+                                        return <p>Price: {numeral(currency.price).format('$0,0.00000000000')}</p>;
+                                    } else if (price < 0.0000001) {
+                                        return <p>Price: {numeral(currency.price).format('$0,0.000000000')}</p>;
+                                    } else if (price < 0.00001) {
+                                        return <p>Price: {numeral(currency.price).format('$0,0.0000000')}</p>;
+                                    } else if (price < 0.001) {
+                                        return <p>Price: {numeral(currency.price).format('$0,0.000000')}</p>;
+                                    } else if (price < 1) {
+                                        return <p>Price: {numeral(currency.price).format('$0,0.0000')}</p>;
+                                    } else if (price < 10) {
+                                        return <p>Price: {numeral(currency.price).format('$0,0.0000')}</p>;
+                                    } else if (price > 10) {
+                                        return <p>Price: {numeral(currency.price).format('$0,0.00')}</p>;
+                                    } else {
+                                        return <p>Price: {currency.price}</p>;
+                                    }
+                                })()}
                                 {currency.change >= 0 ? <p>Daily Change: <span className='positive-change-card'>{currency.change}%</span></p> : <p>Daily Change: <span className='negative-change-card'>{currency.change}%</span></p>}
                             </Card>
                         </Link>
