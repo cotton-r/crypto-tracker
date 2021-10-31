@@ -9,10 +9,31 @@
     margin: 15px !important;
 }
 
+.ant-card:hover {
+    background-color: #1f2944 !important;
+    transition: 0.2s !important;
+    border-radius: 5px !important;
+}
+
 .crypto-page {
     overflow-y: scroll !important;
     overflow-x: hidden !important;
+    scroll-behavior: smooth !important;
     width: calc(100vw - 192px) !important;
+}
+
+.crypto-page::-webkit-scrollbar {
+    width: 0.6em;
+}
+   
+.crypto-page::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+   
+.crypto-page::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 5px;
 }
 
 .crypto-card-container {
@@ -27,4 +48,12 @@
     background-color: #222B44 !important;
     width: fit-content !important;
     min-width: 300px !important;
+}
+
+.positive-change-card {
+    color: #74D16C !important;
+}
+
+.negative-change-card {
+    color: #E32525 !important;
 }

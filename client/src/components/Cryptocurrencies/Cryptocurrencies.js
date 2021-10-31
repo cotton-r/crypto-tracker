@@ -38,7 +38,7 @@ const Cryptocurrencies = () => {
                             >
                                 <p>Price: {currency.price > 10 ? numeral(currency.price).format('$0,0.00') : currency.price}</p>
                                 <p>Market Cap: {millify(currency.marketCap)}</p>
-                                <p>Daily Change: {currency.change}%</p>
+                                {currency.change >= 0 ? <p>Daily Change: <span className='positive-change-card'>{currency.change}%</span></p> : <p>Daily Change: <span className='negative-change-card'>{currency.change}%</span></p>}
                             </Card>
                         </Link>
                     </Col>
