@@ -1,0 +1,30 @@
+.crypto-image {
+    height: 35px;
+    width: auto;
+}
+
+.ant-card {
+    background-color: #1D2437 !important;
+    border: none !important;
+    margin: 15px !important;
+}
+
+.crypto-page {
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    width: calc(100vw - 192px) !important;
+}
+
+.crypto-card-container {
+    width: 100% !important;
+}
+
+.search-crypto {
+    margin: 15px;
+}
+
+.search-crypto-field {
+    background-color: #222B44 !important;
+    width: fit-content !important;
+    min-width: 300px !important;
+}

@@ -23,7 +23,7 @@ body {
 }
 
 .main {
-    width: calc(100vw - 192px);
+    max-width: calc(100vw - 242px) !important;
     min-height: 100vw !important;
 }
 
