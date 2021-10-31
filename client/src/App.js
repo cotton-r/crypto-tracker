@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 
@@ -7,20 +7,23 @@ import './App.css';
 import { Navbar, Cryptocurrencies, Dashboard, News } from './components/index';
  
 const App = () => {
+
+    const [userCurrency, setUserCurrency] = useState('GBP');
+
     return (
         <div className='app'>
             <div className='navbar'>
-                <Navbar />
+                <Navbar userCurrency={userCurrency} setUserCurrency={setUserCurrency} />
             </div>
             <div className='main'>
                 <Layout>
                     <div className='routes'>
                         <Switch>
                             <Route exact path='/'>
-                                <Dashboard />
+                                <Dashboard userCurrency={userCurrency} />
                             </Route>
                             <Route exact path='/cryptocurrencies'>
-                                <Cryptocurrencies />
+                                <Cryptocurrencies userCurrency={userCurrency} />
                             </Route>
                             <Route exact path='/news'>
                                 <News />

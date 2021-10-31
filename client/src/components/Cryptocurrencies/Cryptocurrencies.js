@@ -22,6 +22,8 @@ const Cryptocurrencies = () => {
 
     if (isFetching) return 'Loading...';
 
+    let currencySymbol = '£';
+
     return (
         <div className='page-container crypto-page'>
             <div className='search-crypto'>
@@ -41,21 +43,21 @@ const Cryptocurrencies = () => {
                                     let price = Number(currency.price);
 
                                     if (price < 0.000000001) {
-                                        return <p>Price: {numeral(currency.price).format('$0,0.00000000000')}</p>;
+                                        return <p>Price: {currencySymbol}{numeral(currency.price).format('0,0.00000000000')}</p>;
                                     } else if (price < 0.0000001) {
-                                        return <p>Price: {numeral(currency.price).format('$0,0.000000000')}</p>;
+                                        return <p>Price: {currencySymbol}{numeral(currency.price).format('0,0.000000000')}</p>;
                                     } else if (price < 0.00001) {
-                                        return <p>Price: {numeral(currency.price).format('$0,0.0000000')}</p>;
+                                        return <p>Price: {currencySymbol}{numeral(currency.price).format('0,0.0000000')}</p>;
                                     } else if (price < 0.001) {
-                                        return <p>Price: {numeral(currency.price).format('$0,0.000000')}</p>;
+                                        return <p>Price: {currencySymbol}{numeral(currency.price).format('0,0.000000')}</p>;
                                     } else if (price < 1) {
-                                        return <p>Price: {numeral(currency.price).format('$0,0.0000')}</p>;
+                                        return <p>Price: {currencySymbol}{numeral(currency.price).format('0,0.0000')}</p>;
                                     } else if (price < 10) {
-                                        return <p>Price: {numeral(currency.price).format('$0,0.0000')}</p>;
+                                        return <p>Price: {currencySymbol}{numeral(currency.price).format('0,0.0000')}</p>;
                                     } else if (price > 10) {
-                                        return <p>Price: {numeral(currency.price).format('$0,0.00')}</p>;
+                                        return <p>Price: {currencySymbol}{numeral(currency.price).format('0,0.00')}</p>;
                                     } else {
-                                        return <p>Price: {currency.price}</p>;
+                                        return <p>Price: {currencySymbol}{currency.price}</p>;
                                     }
                                 })()}
                                 {currency.change >= 0 ? <p>Daily Change: <span className='positive-change-card'>{currency.change}%</span></p> : <p>Daily Change: <span className='negative-change-card'>{currency.change}%</span></p>}

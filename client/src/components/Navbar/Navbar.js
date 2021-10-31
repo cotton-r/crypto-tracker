@@ -7,7 +7,12 @@ import './Navbar.css';
 
 import icon from '../../images/crypto-icon.png';
 
-const Navbar = () => {
+const Navbar = ({userCurrency, setUserCurrency}) => {
+
+    const handleCurrencyChange = (e) => {
+        setUserCurrency(e.target.value);
+    };
+
     return (
         <div className='nav-container'>
             <div className='logo-container'>
@@ -24,6 +29,16 @@ const Navbar = () => {
                     <Link to='/news' className='nav-item-icon'>News</Link>
                 </Menu.Item>
             </Menu>
+            <div className='currency-picker-container'>
+                <select 
+                    value={userCurrency}
+                    onChange={(e) => handleCurrencyChange(e)}
+                >
+                    <option value='GBP'>GBP</option>
+                    <option value='USD'>USD</option>
+                    <option value='EUR'>EUR</option>
+                </select>
+            </div>
         </div>
     )
 }
