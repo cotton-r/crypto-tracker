@@ -11,10 +11,9 @@ const { Title } = Typography;
 
 const Dashboard = () => {
 
+    // global stats api call
     const { data, isFetching } = useGetCryptosQuery();
     const globalStats = data?.data?.stats;
-
-    console.log(data);
 
     if (isFetching) return 'Loading...';
 
