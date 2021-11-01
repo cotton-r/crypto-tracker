@@ -21,7 +21,7 @@ const Dashboard = ({userCurrency}) => {
     if (isFetching) return 'Loading...';
 
     return (
-        <div className='page-container'>
+        <div className='page-container dashboard-page'>
             <div className='global-stats-tile'>
                 <Title level={2} className='global-stats-heading'>Global Crypto Stats</Title>
                 <Row>
