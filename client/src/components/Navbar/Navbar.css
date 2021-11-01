@@ -34,3 +34,28 @@
     background-color: #1890ff !important;
 }
 
+.ant-select-selector {
+    background-color: #1D2437 !important;
+}
+
+.currency-select-dropdown {
+    background-color: #1D2437 !important;
+}
+
+.currency-select-dropdown:hover {
+    background-color: #1D2437 !important;
+}
+
+.currency-option:hover {
+    background-color: #27314d !important;
+}
+
+.ant-select-selection-selected-value {
+    background-color: #27314d !important;
+}
+
+.currency-option {
+    background-color: #1D2437 !important;
+}
+
+
