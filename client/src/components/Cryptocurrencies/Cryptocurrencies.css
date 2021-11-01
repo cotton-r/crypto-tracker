@@ -19,7 +19,6 @@
     overflow-y: scroll !important;
     overflow-x: hidden !important;
     scroll-behavior: smooth !important;
-    width: calc(100vw - 192px) !important;
 }
 
 .crypto-page::-webkit-scrollbar {

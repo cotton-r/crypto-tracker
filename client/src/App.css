@@ -31,4 +31,5 @@ body {
     height: 100vh;
     background-color: #151A30;
     padding: 10px;
+    width: calc(100vw - 192px) !important;
 }
