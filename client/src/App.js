@@ -26,7 +26,7 @@ const App = () => {
                                 <Cryptocurrencies userCurrency={userCurrency} />
                             </Route>
                             <Route exact path='/news'>
-                                <News />
+                                <News userCurrency={userCurrency} />
                             </Route>
                         </Switch>
                     </div>
