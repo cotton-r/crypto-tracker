@@ -38,6 +38,22 @@ const News = ({ userCurrency }) => {
 
     return (
         <div className='page-container news-page'>
+            {
+                <Col span={24}>
+                    <Select
+                        showSearch
+                        className='select-button news-select-button'
+                        dropdownClassName='select-button-dropdown news-dropdown'
+                        placeholder='Select a Crypto'
+                        optionFilterProp='children'
+                        onChange={(value) => handleNewsChange(value)}
+                        filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                    >
+                        <Option value='Cryptocurrency' className='select-option'>All Cryptocurrencies</Option>
+                        {data?.data?.coins.map((coin) => <Option value={coin.name} className='select-option'>{coin.name}</Option>)}
+                    </Select>
+                </Col>
+            }
             <StackGrid 
                 columnWidth={300} 
                 className='news-container'
@@ -45,21 +61,6 @@ const News = ({ userCurrency }) => {
                 gutterWidth={30}
                 gutterHeight={10}
             >
-                {
-                    <Col span={24}>
-                        <Select
-                            showSearch
-                            className='select-news'
-                            placeholder='Select a Crypto'
-                            optionFilterProp='children'
-                            onChange={(value) => handleNewsChange(value)}
-                            filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-                        >
-                            <Option value='Cryptocurrency'>All Cryptocurrencies</Option>
-                            {data?.data?.coins.map((coin) => <Option value={coin.name}>{coin.name}</Option>)}
-                        </Select>
-                    </Col>
-                }
                 {cryptoNews.value.map((news, i) => (
                     <Col xs={24} sm={12} lg={8} key={i}>
                         <Card hoverable className='news-card'>

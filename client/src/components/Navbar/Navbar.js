@@ -37,20 +37,20 @@ const Navbar = ({userCurrency, setUserCurrency}) => {
                         defaultValue="GBP"
                         value={userCurrency}
                         onChange={(e) => handleCurrencyChange(e)}
-                        dropdownClassName='currency-select-dropdown'
-                        className='currency-select'
+                        dropdownClassName='select-button-dropdown'
+                        className='select-button'
                     >
-                        <Option className='currency-option' value='GBP'>GBP</Option>
-                        <Option className='currency-option' value='USD'>USD</Option>
-                        <Option className='currency-option' value='EUR'>EUR</Option>
-                        <Option className='currency-option' value='INR'>INR</Option>
-                        <Option className='currency-option' value='AUD'>AUD</Option>
-                        <Option className='currency-option' value='CAD'>CAD</Option>
-                        <Option className='currency-option' value='SGD'>SGD</Option>
-                        <Option className='currency-option' value='CHF'>CHF</Option>
-                        <Option className='currency-option' value='MYR'>MYR</Option>
-                        <Option className='currency-option' value='JPY'>JPY</Option>
-                        <Option className='currency-option' value='CNY'>CNY</Option>
+                        <Option className='select-option' value='GBP'>GBP</Option>
+                        <Option className='select-option' value='USD'>USD</Option>
+                        <Option className='select-option' value='EUR'>EUR</Option>
+                        <Option className='select-option' value='INR'>INR</Option>
+                        <Option className='select-option' value='AUD'>AUD</Option>
+                        <Option className='select-option' value='CAD'>CAD</Option>
+                        <Option className='select-option' value='SGD'>SGD</Option>
+                        <Option className='select-option' value='CHF'>CHF</Option>
+                        <Option className='select-option' value='MYR'>MYR</Option>
+                        <Option className='select-option' value='JPY'>JPY</Option>
+                        <Option className='select-option' value='CNY'>CNY</Option>
                     </Select>
                 
                 </Input.Group>

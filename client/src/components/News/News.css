@@ -27,7 +27,7 @@
 }
 
 .news-card {
-    background-color: #1D2437 !important;
+    background-color: #222B44 !important;
     border: none !important;
     margin: 5px !important;
     width: 290px !important;
@@ -35,7 +35,7 @@
 }
 
 .news-card:hover {
-    background-color: #1f2944 !important;
+    background-color: #2b375a !important;
     transition: 0.2s !important;
     border-radius: 5px !important;
 }
@@ -60,4 +60,12 @@
 
 .news-title {
     font-weight: 700 !important;
+}
+
+.news-dropdown {
+ width: 150px !important;
+}
+.news-select-button {
+    margin-left: 40px !important;
+    margin-bottom: 10px !important;
 }

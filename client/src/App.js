@@ -4,7 +4,7 @@ import { Layout, Typography, Space } from 'antd';
 
 import './App.css';
 
-import { Navbar, Cryptocurrencies, Dashboard, News } from './components/index';
+import { Navbar, Cryptocurrencies, Dashboard, News, CryptoDetails } from './components/index';
  
 const App = () => {
 
@@ -27,6 +27,9 @@ const App = () => {
                             </Route>
                             <Route exact path='/news'>
                                 <News userCurrency={userCurrency} />
+                            </Route>
+                            <Route exact path='/crypto/:coinId'>
+                                <CryptoDetails />
                             </Route>
                         </Switch>
                     </div>
