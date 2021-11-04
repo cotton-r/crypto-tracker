@@ -38,15 +38,15 @@
     background-color: #1D2437 !important;
 }
 
-.currency-select-dropdown {
+.select-button-dropdown {
     background-color: #1D2437 !important;
 }
 
-.currency-select-dropdown:hover {
+.select-button-dropdown:hover {
     background-color: #1D2437 !important;
 }
 
-.currency-option:hover {
+.select-option:hover {
     background-color: #27314d !important;
 }
 
@@ -54,7 +54,7 @@
     background-color: #27314d !important;
 }
 
-.currency-option {
+.select-option {
     background-color: #1D2437 !important;
 }
 

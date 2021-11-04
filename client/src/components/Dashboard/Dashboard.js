@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import millify from 'millify';
 import { Typography, Row, Col, Statistic } from 'antd';
 import { Link } from 'react-router-dom';
@@ -15,6 +15,9 @@ const Dashboard = ({userCurrency}) => {
     // global stats api call
     const { data, isFetching } = useGetCryptosQuery(userCurrency);
     const globalStats = data?.data?.stats;
+
+    // chart
+    const [timePeriod, setTimePeriod] = useState('7d');
 
     const currencySymbol = currencies[userCurrency];
 
