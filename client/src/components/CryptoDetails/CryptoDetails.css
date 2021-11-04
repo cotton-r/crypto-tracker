@@ -36,6 +36,14 @@
     background-color: #1D2437;
 }
 
+.coin-heading-container p {
+    color: #559ef1 !important;
+}
+
+.coin-value-statistics-heading p {
+    color: #559ef1 !important;
+}
+
 .stats-icon {
     margin-right: 10px;
 }
@@ -90,20 +98,20 @@
 }
 
 .coin-links {
-    margin-top: 20px;
-    width: 90%;
+    margin-top: 40px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 .coin-link {
-    width: 250px;
+    width: 310px;
     display: flex;
     justify-content: space-between;
 }
 
 .coin-link a {
-    color: #3182df !important;
+    color: #559ef1 !important;
 }
 
 .stats-desc-container {
@@ -118,4 +126,8 @@
 
 .stats-holder {
     margin-top: 50px !important;
+}
+
+.coin-desc p {
+    color: #559ef1 !important;
 }
