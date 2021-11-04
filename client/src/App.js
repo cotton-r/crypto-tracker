@@ -29,7 +29,7 @@ const App = () => {
                                 <News userCurrency={userCurrency} />
                             </Route>
                             <Route exact path='/crypto/:coinId'>
-                                <CryptoDetails />
+                                <CryptoDetails userCurrency={userCurrency} />
                             </Route>
                         </Switch>
                     </div>
