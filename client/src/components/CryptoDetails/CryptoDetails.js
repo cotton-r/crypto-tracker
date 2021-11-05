@@ -2,25 +2,30 @@ import React, { useState } from 'react';
 import HTMLReactParser from 'html-react-parser';
 import { useParams } from 'react-router-dom';
 import millify from 'millify';
-import numeral from 'numeral'
+import numeral from 'numeral';
 import { Col, Row, Typography, Select } from 'antd';
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import { currencies } from '../currencyList';
 
 import './CryptoDetails.css';
 
-import { useGetCryptoDetailsQuery } from '../../services/cryptoApi';
+import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../../services/cryptoApi';
+import LineChart from '../LineChart/LineChart';
 
 const { Title, Text } = Typography;
 const { Option } = Select;
 
 const CryptoDetails = ({ userCurrency }) => {
     const { coinId } = useParams();
+    const [timePeriod, setTimePeriod] = useState('7d');
     const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
+    const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timePeriod });
     const cryptoDetails = data?.data?.coin;
 
-    const [timePeriod, setTimePeriod] = useState('7d');
-    const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
+    console.log(data)
+
+
+    const time = ['24h', '7d', '30d', '1y', '5y'];
 
     const currencySymbol = currencies[userCurrency];
 
@@ -106,7 +111,7 @@ const CryptoDetails = ({ userCurrency }) => {
                         {time.map((date) => <Option key={date} className='select-option'>{date}</Option>)}
                     </Select>
                 </div>
-                {/* line chart */}
+                <LineChart userCurrency={userCurrency} coinHistory={coinHistory} currentPrice={cryptoDetails?.price} coinName={cryptoDetails?.name} />
                 <div className='stats-desc-container'>
                     <Col className='stats-container'>
                         <Col className='coin-value-statistics'>

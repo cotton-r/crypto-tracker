@@ -1,0 +1,19 @@
+.chart-wrapper {
+    margin-bottom: 50px;
+}
+
+.chart-header {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.price-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline;
+}
+
+.price-change {
+    margin-right: 25px;
+}
