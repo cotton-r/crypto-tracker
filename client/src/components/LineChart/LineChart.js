@@ -5,6 +5,7 @@ import numeral from 'numeral';
 
 import './LineChart.css';
 import ColumnGroup from 'rc-table/lib/sugar/ColumnGroup';
+import { currencies } from '../currencyList';
 
 const { Title } = Typography;
 
@@ -17,6 +18,8 @@ const LineChart = ({ userCurrency, coinHistory, currentPrice, coinName }) => {
         coinPrice.push(coinHistory?.data?.history[i]?.price)
         coinTimeStamp.push(new Date(coinHistory?.data?.history[i]?.timestamp).toLocaleDateString());
     };
+
+    const currencySymbol = currencies[userCurrency];
 
     let price = Number(currentPrice);
     let cryptoPrice = null;
@@ -90,7 +93,7 @@ const LineChart = ({ userCurrency, coinHistory, currentPrice, coinName }) => {
                 <Title level={2} className='chart-title'>{coinName} Price Chart</Title>
                 <Col className='price-container'>
                     <Title level={5} className='price-change'>{coinHistory?.data?.change}%</Title>
-                    <Title level={5} className='current-change'>Current {coinName} Price: ${cryptoPrice}</Title>
+                    <Title level={5} className='current-change'>Current {coinName} Price: {currencySymbol}{cryptoPrice}</Title>
                 </Col>
             </Row>
             <Line data={data} options={options} />

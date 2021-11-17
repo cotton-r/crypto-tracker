@@ -20,7 +20,7 @@ export const cryptoApi = createApi({
             query: ({ coinId, userCurrency }) => createRequest(`/coin/${coinId}?base=${userCurrency}`),
         }),
         getCryptoHistory: builder.query({
-            query: ({ coinId, timePeriod }) => createRequest(`/coin/${coinId}/history/${timePeriod}`),
+            query: ({ coinId, timePeriod, userCurrency }) => createRequest(`/coin/${coinId}/history/${timePeriod}?base=${userCurrency}`),
         }),
     })
 });

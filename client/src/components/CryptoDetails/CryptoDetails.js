@@ -19,7 +19,7 @@ const CryptoDetails = ({ userCurrency }) => {
     const { coinId } = useParams();
     const [timePeriod, setTimePeriod] = useState('7d');
     const { data, isFetching } = useGetCryptoDetailsQuery({ coinId, userCurrency });
-    const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timePeriod });
+    const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timePeriod, userCurrency });
     const cryptoDetails = data?.data?.coin;
 
     console.log(data)
