@@ -56,3 +56,12 @@
 .negative-change-card {
     color: #E32525 !important;
 }
+
+.loading-card {
+    height: 224px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
