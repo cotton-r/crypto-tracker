@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useReducer } from 'react';
-import { Select, Typography, Row, Col, Avatar, Card } from 'antd';
+import { Spin, Select, Typography, Row, Col, Avatar, Card } from 'antd';
 import moment from 'moment';
 import StackGrid from "react-stack-grid";
 
@@ -20,8 +20,6 @@ const News = ({ userCurrency }) => {
     const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, count: 12});
     const { data } = useGetCryptosQuery(userCurrency);
 
-
-
     const handleNewsChange = (value) => {
         setNewsCategory(value);
         forceUpdate();
@@ -33,12 +31,12 @@ const News = ({ userCurrency }) => {
         }, 400);
         return () => clearTimeout(timer);
       }, [newsCategory]);
-    
-      if (!cryptoNews?.value) return 'Loading...';
 
     return (
         <div className='page-container news-page'>
-            {
+            {!cryptoNews?.value
+                ? ''
+                :
                 <Col span={24}>
                     <Select
                         showSearch
@@ -54,39 +52,43 @@ const News = ({ userCurrency }) => {
                     </Select>
                 </Col>
             }
-            <StackGrid 
-                columnWidth={300} 
-                className='news-container'
-                monitorImagesLoaded={true}
-                gutterWidth={30}
-                gutterHeight={10}
-            >
-                {cryptoNews.value.map((news, i) => (
-                    <Col xs={24} sm={12} lg={8} key={i}>
-                        <Card hoverable className='news-card'>
-                            <a href={news.url} target='_blank' rel='noreferrer'>
-                                <div className='news-image-container'>
-                                    <Title className='news-title' level={5}>{news.name}</Title>
-                                    <img style={{ maxWidth: '200px', maxHeight: '100px' }}src={news?.image?.thumbnail?.contentUrl || demoImage} alt='news' />
-                                </div>
-                                <p>
-                                    {news.description > 100 
-                                        ? `${news.description.substring(0, 100)}...`
-                                        : news.description
-                                    }
-                                </p>
-                                <div className='provider-container'>
-                                    <div>
-                                        <Avatar src={news.provider[0]?.image?.thumbnail?.contentUrl || demoImage} alt='' />
-                                        <Text className='provider-name'>{news.provider[0]?.name}</Text>
+            {!cryptoNews?.value
+                ? <div className='loading-news'><Spin size='large' /></div>
+                :
+                <StackGrid 
+                    columnWidth={300} 
+                    className='news-container'
+                    monitorImagesLoaded={true}
+                    gutterWidth={30}
+                    gutterHeight={10}
+                >
+                    {cryptoNews.value.map((news, i) => (
+                        <Col xs={24} sm={12} lg={8} key={i}>
+                            <Card hoverable className='news-card'>
+                                <a href={news.url} target='_blank' rel='noreferrer'>
+                                    <div className='news-image-container'>
+                                        <Title className='news-title' level={5}>{news.name}</Title>
+                                        <img style={{ maxWidth: '200px', maxHeight: '100px' }}src={news?.image?.thumbnail?.contentUrl || demoImage} alt='news' />
                                     </div>
-                                    <Text>{moment(news.datePublished).startOf('ss').fromNow()}</Text>
-                                </div>
-                            </a>
-                        </Card>
-                    </Col>
-                ))}
-            </StackGrid>
+                                    <p>
+                                        {news.description > 100 
+                                            ? `${news.description.substring(0, 100)}...`
+                                            : news.description
+                                        }
+                                    </p>
+                                    <div className='provider-container'>
+                                        <div>
+                                            <Avatar src={news.provider[0]?.image?.thumbnail?.contentUrl || demoImage} alt='' />
+                                            <Text className='provider-name'>{news.provider[0]?.name}</Text>
+                                        </div>
+                                        <Text>{moment(news.datePublished).startOf('ss').fromNow()}</Text>
+                                    </div>
+                                </a>
+                            </Card>
+                        </Col>
+                    ))}
+                </StackGrid>
+            }
         </div>
     )
 };

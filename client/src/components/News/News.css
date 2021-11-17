@@ -69,3 +69,12 @@
     margin-left: 40px !important;
     margin-bottom: 10px !important;
 }
+
+.loading-news {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
