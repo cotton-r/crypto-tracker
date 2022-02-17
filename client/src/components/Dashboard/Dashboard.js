@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { currencies } from '../currencyList';
 
 import './Dashboard.css';
+import Favourites from './Favourites/Favourites';
 
 import { useGetCryptosQuery } from '../../services/cryptoApi';
 
@@ -33,6 +34,9 @@ const Dashboard = ({userCurrency}) => {
                     <Col span={12}><Statistic title='Total Market Cap' value={currencySymbol + ' ' + millify(globalStats.totalMarketCap)} /></Col>
                     <Col span={12}><Statistic title='Total 24hr Volume' value={currencySymbol + ' ' + millify(globalStats.total24hVolume)} /></Col>
                 </Row>
+            </div>
+            <div className='favourite-coins-container'>
+                <Favourites userCurrency={userCurrency} />
             </div>
         </div>
     )

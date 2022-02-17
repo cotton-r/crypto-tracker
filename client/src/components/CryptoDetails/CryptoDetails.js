@@ -22,9 +22,6 @@ const CryptoDetails = ({ userCurrency }) => {
     const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timePeriod, userCurrency });
     const cryptoDetails = data?.data?.coin;
 
-    console.log(data)
-
-
     const time = ['24h', '7d', '30d', '1y', '5y'];
 
     const currencySymbol = currencies[userCurrency];
