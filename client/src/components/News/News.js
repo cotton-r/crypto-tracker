@@ -18,7 +18,7 @@ const News = ({ userCurrency }) => {
     const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
     const [newsCategory, setNewsCategory] = useState('Cryptocurrency');
     const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, count: 12});
-    const { data } = useGetCryptosQuery(userCurrency);
+    // const { data } = useGetCryptosQuery(userCurrency);
 
     const handleNewsChange = (value) => {
         setNewsCategory(value);
@@ -34,7 +34,7 @@ const News = ({ userCurrency }) => {
 
     return (
         <div className='page-container news-page'>
-            {!cryptoNews?.value
+            {/* {!cryptoNews?.value
                 ? ''
                 :
                 <Col span={24}>
@@ -51,7 +51,7 @@ const News = ({ userCurrency }) => {
                         {data?.data?.coins.map((coin) => <Option value={coin.name} className='select-option'>{coin.name}</Option>)}
                     </Select>
                 </Col>
-            }
+            } */}
             {!cryptoNews?.value
                 ? <div className='loading-news'><Spin size='large' /></div>
                 :
