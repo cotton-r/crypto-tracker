@@ -9,6 +9,8 @@ import Favourites from './Favourites/Favourites';
 
 import { useGetCryptoStatsQuery } from '../../services/cryptoApi';
 
+import { useGetCryptoListQuery } from '../../services/cryptoApi';
+
 const { Title } = Typography;
 
 const Dashboard = ({userCurrency}) => {
@@ -17,14 +19,17 @@ const Dashboard = ({userCurrency}) => {
     const { data, isFetching } = useGetCryptoStatsQuery();
     const globalStats = data?.data
 
+    // coins list api call
+    const { data: coinList, coinListIsFetching } = useGetCryptoListQuery();
+
+    console.log(coinList);
+
     // chart
     const [timePeriod, setTimePeriod] = useState('7d');
 
     const currencySymbol = currencies[userCurrency];
 
     if (isFetching) return 'Loading...';
-
-    console.log(globalStats);
 
     return (
         <div className='page-container dashboard-page'>
@@ -37,7 +42,7 @@ const Dashboard = ({userCurrency}) => {
                 </Row>
             </div>
             <div className='favourite-coins-container'>
-                {/* <Favourites userCurrency={userCurrency} /> */}
+                <Favourites coinList={coinList} />
             </div>
         </div>
     )

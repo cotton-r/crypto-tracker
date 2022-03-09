@@ -5,3 +5,31 @@
     flex-direction: row;
     justify-content: flex-start;
 }
+
+.ant-select-selector {
+    background-color: #1D2437 !important;
+}
+
+.add-currency-select-button-dropdown {
+    background-color: #1D2437 !important;
+}
+
+.add-currency-select-button-dropdown:hover {
+    background-color: #1D2437 !important;
+}
+
+.add-currency-select-option:hover {
+    background-color: #27314d !important;
+}
+
+.ant-select-selection-selected-value {
+    background-color: #27314d !important;
+}
+
+.add-currency-select-option {
+    background-color: #1D2437 !important;
+}
+
+.currency-picker-container {
+    padding: 10px;
+}
