@@ -32,7 +32,7 @@ const Navbar = ({userCurrency, setUserCurrency}) => {
                 </Menu.Item>
             </Menu>
             <div className='currency-picker-container'>
-                <Input.Group compact theme='dark'>
+                <Input.Group theme='dark'>
                     <Select 
                         defaultValue="GBP"
                         value={userCurrency}
